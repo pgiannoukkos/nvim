@@ -55,8 +55,13 @@ Next we need to install python support (node is optional)
 ## Fonts
 
 - [A nerd font](https://github.com/ryanoasis/nerd-fonts)
-
+    ```sh
+    yay -S ttf-firacode-nerd
+    ```
 - [codicon](https://github.com/microsoft/vscode-codicons/raw/main/dist/codicon.ttf)
+    ```sh
+    yay -S vscode-codicons-git
+    ```
 - [An emoji font](https://github.com/googlefonts/noto-emoji/blob/main/fonts/NotoColorEmoji.ttf)
 
 After moving fonts to `~/.local/share/fonts/`
