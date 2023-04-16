@@ -33,6 +33,10 @@ for type, icon in pairs(signs) do
     vim.fn.sign_define(hl, { text = icon , texthl = hl, numhl = hl })
 end
 
+require('lspconfig.ui.windows').default_options = {
+    border = 'rounded'
+}
+
 vim.diagnostic.config({
     underline = true,
     virtual_text = true,
