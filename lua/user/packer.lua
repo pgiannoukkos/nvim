@@ -46,6 +46,9 @@ return packer.startup({function(use)
     use 'saadparwaiz1/cmp_luasnip' --> snippet completions
     use 'rafamadriz/friendly-snippets' --> a bunch o snippets
 
+    -- Formatring and Linting
+    use 'jose-elias-alvarez/null-ls.nvim'
+
     use ('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }) --> Treesitter for better syntax highlight
     use 'folke/tokyonight.nvim' --> TokyoNight colorscheme
 
