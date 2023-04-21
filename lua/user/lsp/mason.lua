@@ -7,11 +7,11 @@ mason.setup({
     ui = {
         border = 'rounded',
         icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-    }
+            package_installed = '✓',
+            package_pending = '➜',
+            package_uninstalled = '✗',
+        },
+    },
 })
 
 local mason_lspconfig_status_ok, mason_lspconfig = pcall(require, 'mason-lspconfig')
@@ -23,4 +23,3 @@ mason_lspconfig.setup({
     ensure_installed = { 'clangd', 'cmake', 'lua_ls', 'rust_analyzer', 'pylsp' },
     automatic_installation = false,
 })
-

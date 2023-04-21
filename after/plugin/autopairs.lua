@@ -4,8 +4,8 @@ if not status_ok then
 end
 
 autopairs.setup({
-    disable_filetype = { "TelescopePrompt", "spectre_panel" },
-    disable_in_macro = false,  -- disable when recording or executing a macro
+    disable_filetype = { 'TelescopePrompt', 'spectre_panel' },
+    disable_in_macro = false, -- disable when recording or executing a macro
     disable_in_visualblock = false, -- disable when insert after visual block mode
     disable_in_replace_mode = true,
     ignored_next_char = [=[[%w%%%'%[%"%.%`%$]]=],
@@ -19,6 +19,5 @@ autopairs.setup({
     map_cr = true,
     map_bs = true, -- map the <BS> key
     map_c_h = false, -- Map the <C-h> key to delete a pair
-    map_c_w = false -- map <c-w> to delete a pair if possible
+    map_c_w = false, -- map <c-w> to delete a pair if possible
 })
-

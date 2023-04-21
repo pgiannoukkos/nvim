@@ -47,7 +47,7 @@ cmp.setup({
     snippet = {
         expand = function(args)
             luasnip.lsp_expand(args.body)
-        end
+        end,
     },
     window = {
         completion = cmp.config.window.bordered(),
@@ -91,14 +91,13 @@ cmp.setup({
         fields = { 'kind', 'abbr', 'menu' },
         format = function(entry, vim_item)
             vim_item.kind = cmp_kinds[vim_item.kind] or ''
-            vim_item.menu = ({ buffer = '[Buffer]', nvim_lsp = '[LSP]', luasnip = '[LuaSnip]', nvim_lua = '[Lua]', })[entry.source.name]
+            vim_item.menu = ({ buffer = '[Buffer]', nvim_lsp = '[LSP]', luasnip = '[LuaSnip]', nvim_lua = '[Lua]' })[entry.source.name]
             return vim_item
-        end
+        end,
     },
     experimental = {
-        ghost_text = false
-    }
+        ghost_text = false,
+    },
 })
 
 cmp.event:on('confirm_done', autopairs.on_confirm_done())
-

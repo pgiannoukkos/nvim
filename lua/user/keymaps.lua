@@ -33,8 +33,8 @@ vim.keymap.set('n', 'N', 'Nzzzv', opts)
 vim.keymap.set('n', 'Q', '<nop>', opts) --> Never press Q
 
 -- move lines up and down
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts)
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts)
+vim.keymap.set('v', 'J', ':m \'>+1<CR>gv=gv', opts)
+vim.keymap.set('v', 'K', ':m \'<-2<CR>gv=gv', opts)
 
 -- better window navigation
 -- now handled by vim-tmux-navigator plugin
@@ -53,4 +53,3 @@ vim.keymap.set('v', '>', '>gv', opts)
 
 -- better paste
 vim.keymap.set('v', 'p', '"_dP', opts)
-

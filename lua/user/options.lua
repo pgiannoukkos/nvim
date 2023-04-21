@@ -6,7 +6,7 @@ vim.opt.background = 'dark'
 vim.opt.termguicolors = true --> set term gui colors (most terminals support this)
 vim.opt.clipboard = 'unnamedplus' --> allows neovim to access the system clipboard
 vim.opt.cmdheight = 1 --> more space in the neovim command line for displaying messages
-vim.opt.completeopt = { 'menuone', 'noselect' } --> mostly just for cmp
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' } --> mostly just for cmp
 vim.opt.conceallevel = 0 --> so that `` is visible in markdown files
 vim.opt.encoding = 'utf-8' --> the encoding written to a file
 vim.opt.pumheight = 10 --> pop-up menu height
@@ -57,4 +57,3 @@ vim.opt.listchars:append('tab:> ')
 vim.opt.shortmess:append('c')
 vim.opt.whichwrap:append('<,>,[,],h,l')
 vim.opt.iskeyword:append('-')
-

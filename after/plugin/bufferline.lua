@@ -1,26 +1,26 @@
-local status_ok, bufferline = pcall(require, "bufferline")
+local status_ok, bufferline = pcall(require, 'bufferline')
 if not status_ok then
     return
 end
 
 bufferline.setup({
     options = {
-        mode = "buffers", -- set to "tabs" to only show tabpages instead
+        mode = 'buffers', -- set to "tabs" to only show tabpages instead
         themable = true, -- allows highlight groups to be overriden i.e. sets highlights as default
-        numbers = "none", -- "ordinal" | "buffer_id" | "both"
-        close_command = "Bdelete! %d", -- can be a string | function, | false see "Mouse actions"
-        right_mouse_command = "Bdelete! %d", -- can be a string | function | false, see "Mouse actions"
-        left_mouse_command = "buffer %d", -- can be a string | function, | false see "Mouse actions"
+        numbers = 'none', -- "ordinal" | "buffer_id" | "both"
+        close_command = 'Bdelete! %d', -- can be a string | function, | false see "Mouse actions"
+        right_mouse_command = 'Bdelete! %d', -- can be a string | function | false, see "Mouse actions"
+        left_mouse_command = 'buffer %d', -- can be a string | function, | false see "Mouse actions"
         middle_mouse_command = nil, -- can be a string | function, | false see "Mouse actions"
         indicator = {
-            icon = "▎", -- this should be omitted if indicator style is not 'icon'
-            style = "icon", -- | 'underline' | 'none',
+            icon = '▎', -- this should be omitted if indicator style is not 'icon'
+            style = 'icon', -- | 'underline' | 'none',
         },
-        buffer_close_icon = "",
-        modified_icon = "●",
-        close_icon = "",
-        left_trunc_marker = "",
-        right_trunc_marker = "",
+        buffer_close_icon = '',
+        modified_icon = '●',
+        close_icon = '',
+        left_trunc_marker = '',
+        right_trunc_marker = '',
         max_name_length = 30,
         max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
         truncate_names = true, -- whether or not tab names should be truncated
@@ -33,9 +33,9 @@ bufferline.setup({
         -- end,
         offsets = {
             {
-                filetype = "NvimTree",
-                text = "File Explorer",
-                text_align = "center",
+                filetype = 'NvimTree',
+                text = 'File Explorer',
+                text_align = 'center',
                 separator = true,
             },
         },
@@ -47,13 +47,13 @@ bufferline.setup({
         show_tab_indicators = true,
         show_duplicate_prefix = true, -- whether to show duplicate buffer prefix
         persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-        separator_style = "thin", -- | "slope" | "thick" | "thin" | { 'any', 'any' },
+        separator_style = 'thin', -- | "slope" | "thick" | "thin" | { 'any', 'any' },
         enforce_regular_tabs = true,
         always_show_bufferline = true,
         hover = {
             enabled = false,
             delay = 200,
-            reveal = { "close" },
+            reveal = { 'close' },
         },
         -- sort_by = "insert_after_current", -- |'insert_at_end' | 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs'    }
     },
