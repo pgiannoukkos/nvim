@@ -52,6 +52,7 @@ return packer.startup({
 
         use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }) --> Treesitter for better syntax highlight
         use('folke/tokyonight.nvim') --> TokyoNight colorscheme
+        use({ 'ellisonleao/gruvbox.nvim' })
 
         use({
             'nvim-telescope/telescope.nvim',
