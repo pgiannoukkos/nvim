@@ -59,6 +59,7 @@ return packer.startup({
             tag = '0.1.1',
             requires = { { 'nvim-lua/plenary.nvim' } },
         })
+        use({'nvim-telescope/telescope-fzf-native.nvim', run ='make'})
 
         use('goolord/alpha-nvim')
         use('christoomey/vim-tmux-navigator') --> tmux & split window navigation
