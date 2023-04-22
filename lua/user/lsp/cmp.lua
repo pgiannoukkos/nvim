@@ -91,7 +91,7 @@ cmp.setup({
         fields = { 'kind', 'abbr', 'menu' },
         format = function(entry, vim_item)
             vim_item.kind = cmp_kinds[vim_item.kind] or ''
-            vim_item.menu = ({ buffer = '[Buffer]', nvim_lsp = '[LSP]', luasnip = '[LuaSnip]', nvim_lua = '[Lua]' })[entry.source.name]
+            vim_item.menu = ({ buffer = '[Buffer]', nvim_lsp = '[LSP]', luasnip = '[LuaSnip]', nvim_lua = '[Lua]', path = '[Path]' })[entry.source.name]
             return vim_item
         end,
     },
