@@ -5,7 +5,7 @@ end
 
 treesitter.setup({
     -- A list of parser names, or "all" (the five listed parsers should always be installed)
-    ensure_installed = { 'c', 'cpp', 'lua', 'vim', 'vimdoc' },
+    ensure_installed = { 'c', 'cpp', 'lua', 'rust', 'vim', 'vimdoc' },
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
     -- Automatically install missing parsers when entering buffer
