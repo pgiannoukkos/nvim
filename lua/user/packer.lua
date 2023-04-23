@@ -50,6 +50,10 @@ return packer.startup({
         -- Formatring and Linting
         use('jose-elias-alvarez/null-ls.nvim')
 
+        -- Debugging
+        use('mfussenegger/nvim-dap')
+        use('rcarriga/nvim-dap-ui')
+
         use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }) --> Treesitter for better syntax highlight
         use('folke/tokyonight.nvim') --> TokyoNight colorscheme
         use({ 'ellisonleao/gruvbox.nvim' })
@@ -59,7 +63,7 @@ return packer.startup({
             tag = '0.1.1',
             requires = { { 'nvim-lua/plenary.nvim' } },
         })
-        use({'nvim-telescope/telescope-fzf-native.nvim', run ='make'})
+        use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
 
         use('goolord/alpha-nvim')
         use('christoomey/vim-tmux-navigator') --> tmux & split window navigation
