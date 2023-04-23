@@ -65,6 +65,7 @@ return packer.startup({
         })
         use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
 
+        use('folke/neodev.nvim')
         use('goolord/alpha-nvim')
         use('christoomey/vim-tmux-navigator') --> tmux & split window navigation
         use('windwp/nvim-autopairs') --> Autopairs

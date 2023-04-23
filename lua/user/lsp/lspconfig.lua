@@ -1,7 +1,14 @@
+local neodev_status_ok, neodev = pcall(require, 'neodev')
+if not neodev_status_ok then
+    return
+end
+
 local lspconfig_status_ok, lspconfig = pcall(require, 'lspconfig')
 if not lspconfig_status_ok then
     return
 end
+
+neodev.setup()
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
