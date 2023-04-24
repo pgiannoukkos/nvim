@@ -32,6 +32,7 @@ return packer.startup({
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
             'neovim/nvim-lspconfig',
+            'ray-x/lsp_signature.nvim'
         })
 
         -- Autocompletion
