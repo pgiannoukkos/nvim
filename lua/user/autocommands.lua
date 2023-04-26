@@ -1,12 +1,12 @@
 -- Use 'q' to quit from common plugins
 vim.api.nvim_create_autocmd({ 'FileType' }, {
-    pattern = { 'qf', 'help', 'man', 'lspinfo', 'spectre_panel', 'lir' },
-    callback = function()
-        vim.cmd([[
-        nnoremap <silent> <buffer> q :close<CR>
-        set nobuflisted
-        ]])
-    end
+   pattern = { 'qf', 'help', 'man', 'lspinfo', 'spectre_panel', 'lir' },
+   callback = function()
+       vim.cmd([[
+       nnoremap <silent> <buffer> q :close<CR>
+       set nobuflisted
+       ]])
+   end
 })
 
 -- Remove statusline and tabline when in Alpha
@@ -29,7 +29,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     end,
 })
 
-vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif")
+-- vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif")
 
 -- Fixes Autocomment
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
@@ -41,7 +41,6 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 -- Highlight Yanked Text
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
     callback = function()
-        vim.highlight.on_yank({ higroup = "Visual", timeout = 200 })
+        vim.highlight.on_yank({ higroup = "Visual", timeout = 500 })
     end,
 })
-
