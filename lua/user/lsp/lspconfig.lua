@@ -50,6 +50,10 @@ lspconfig.pylsp.setup({
     capabilities = capabilities,
 })
 
+lspconfig.bashls.setup({
+    capabilities = capabilities,
+})
+
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below function
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })

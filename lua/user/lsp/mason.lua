@@ -20,6 +20,6 @@ if not mason_lspconfig_status_ok then
 end
 
 mason_lspconfig.setup({
-    ensure_installed = { 'clangd', 'cmake', 'lua_ls', 'rust_analyzer', 'pylsp' },
+    ensure_installed = { 'clangd', 'cmake', 'lua_ls', 'rust_analyzer', 'pylsp', 'bashls' },
     automatic_installation = false,
 })
