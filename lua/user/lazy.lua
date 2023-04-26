@@ -77,6 +77,10 @@ local plugins = {
     { 'moll/vim-bbye' },
 }
 
-local opts = {}
+local opts = {
+    ui = {
+        border = 'rounded',
+    },
+}
 
 lazy.setup(plugins, opts)
