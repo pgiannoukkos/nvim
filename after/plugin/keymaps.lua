@@ -1,23 +1,15 @@
--- keymap options
 local opts = { noremap = true, silent = true }
 
--- remap space as leader key
-vim.keymap.set('', '<Space>', '<Nop>', opts)
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
-vim.keymap.set('i', 'kj', '<Esc>', { desc = 'Exit insert mode' }) --> press kj fast to exit insert mode
-vim.keymap.set('n', '<leader>w', '<cmd>w!<CR>', { desc = 'Save File' }) --> Save
-vim.keymap.set('n', '<leader>q', '<cmd>qa!<CR>', { desc = 'Quit Neovim' }) --> Quit
-vim.keymap.set('n', '<leader>c', '<cmd>Bdelete!<CR>', { desc = 'Close Buffer' }) --> Close buffer
+vim.keymap.set('i', 'kj', '<Esc>', { desc = 'Exit insert mode' })
+vim.keymap.set('n', '<leader>q', ':Bdelete<CR>', { desc = 'Close current buffer', silent = true })
 
-vim.keymap.set('n', '<leader>pv', '<cmd>NvimTreeToggle<CR>', { desc = 'Toggle NvimTree' }) --> Open file explorer
+vim.keymap.set('n', '<leader>pv', '<cmd>NvimTreeToggle<CR>', { desc = 'Toggle NvimTree' })
 
--- Telescope
-local status_ok, builtin = pcall(require, 'telescope.builtin')
-if not status_ok then
-    return
-end
+vim.keymap.set('n', '<leader>l', '<cmd>:Lazy<CR>', { desc = 'Lazy' })
+
+local builtin = require('telescope.builtin')
 
 vim.keymap.set('n', '<leader>?', builtin.oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader>/', function()
@@ -60,7 +52,7 @@ vim.keymap.set('n', '<S-h>', '<cmd>bprev<CR>', { desc = 'Prev Buffer' })
 
 -- stay in indent mode
 vim.keymap.set('v', '<', '<gv', { desc = 'Indent and stay in Visual Mode' })
-vim.keymap.set('v', '>', '>gv',{ desc = 'Indent and stay in Visual Mode' })
+vim.keymap.set('v', '>', '>gv', { desc = 'Indent and stay in Visual Mode' })
 
 -- better paste
-vim.keymap.set('v', 'p', '"_dP',{ desc = 'Better Paste' })
+vim.keymap.set('v', 'p', '"_dP', { desc = 'Better Paste' })

@@ -1,3 +1,13 @@
+-- Highlight Yanked Text
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+    group = highlight_group,
+    pattern = '*',
+})
+
 -- Use 'q' to quit from common plugins
 vim.api.nvim_create_autocmd({ 'FileType' }, {
     pattern = { 'qf', 'help', 'man', 'lspinfo', 'spectre_panel', 'lir' },
@@ -33,12 +43,5 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
 vim.api.nvim_create_autocmd({ 'BufWinEnter' }, {
     callback = function()
         vim.cmd('set formatoptions-=cro')
-    end,
-})
-
--- Highlight Yanked Text
-vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
-    callback = function()
-        vim.highlight.on_yank({ higroup = 'Visual', timeout = 500 })
     end,
 })
