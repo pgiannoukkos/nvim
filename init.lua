@@ -127,12 +127,16 @@ local servers = {
     clangd = {},
     cmake = {},
     lua_ls = {
-        Lua = {
-            workspace = { checkThirdParty = false },
-            telemetry = { enable = false },
-        },
+        settings = {
+            Lua = {
+                workspace = { checkThirdParty = false },
+                telemetry = { enable = false },
+            },
+        }
     },
-    rust_analyzer = {},
+    rust_analyzer = {
+        cmd = { 'rustup', 'run', 'stable', 'rust-analyzer' }
+    },
     pylsp = {},
     bashls = {},
 }
@@ -168,7 +172,8 @@ mason_lspconfig.setup_handlers({
         require('lspconfig')[server_name].setup({
             capabilities = capabilities,
             on_attach = on_attach,
-            settings = servers[server_name],
+            settings = servers[server_name].settings,
+            cmd = servers[server_name].cmd,
         })
     end,
 })
