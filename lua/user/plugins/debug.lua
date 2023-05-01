@@ -43,6 +43,7 @@ return {
             },
         }
         dap.configurations.cpp = dap.configurations.c
+        dap.configurations.rust = dap.configurations.c
 
         vim.keymap.set('n', '<F5>', dap.continue)
         vim.keymap.set('n', '<F9>', dap.toggle_breakpoint)
