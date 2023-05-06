@@ -28,7 +28,8 @@ require('lazy').setup({
     { 'christoomey/vim-tmux-navigator' }, --> tmux & split window navigation
     { 'moll/vim-bbye' },
 
-    { -- LSP Configuration & Plugins
+    {
+        -- LSP Configuration & Plugins
         'neovim/nvim-lspconfig',
         dependencies = {
             { 'williamboman/mason.nvim' },
@@ -36,22 +37,10 @@ require('lazy').setup({
 
             -- Useful status updates for LSP
             -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-            { 'j-hui/fidget.nvim', opts = {} },
+            { 'j-hui/fidget.nvim',                opts = {} },
 
             -- Additional lua configuration, makes nvim stuff amazing!
             { 'folke/neodev.nvim' },
-        },
-    },
-
-    { -- Autocompletion
-        'hrsh7th/nvim-cmp',
-        dependencies = {
-            'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-buffer',
-            'hrsh7th/cmp-path',
-            'L3MON4D3/LuaSnip',
-            'saadparwaiz1/cmp_luasnip',
-            'rafamadriz/friendly-snippets'
         },
     },
 
@@ -132,10 +121,10 @@ local servers = {
                 workspace = { checkThirdParty = false },
                 telemetry = { enable = false },
             },
-        }
+        },
     },
     rust_analyzer = {
-        cmd = { 'rustup', 'run', 'stable', 'rust-analyzer' }
+        cmd = { 'rustup', 'run', 'stable', 'rust-analyzer' },
     },
     pylsp = {},
     bashls = {},
@@ -177,97 +166,3 @@ mason_lspconfig.setup_handlers({
         })
     end,
 })
-
--- nvim-cmp setup
-local cmp = require('cmp')
-local luasnip = require('luasnip')
-
--- luasnip.config.setup({})
-require('luasnip/loaders/from_vscode').lazy_load()
-
-local cmp_kinds = {
-    Text = '  ',
-    Method = '  ',
-    Function = '  ',
-    Constructor = '  ',
-    Field = '  ',
-    Variable = '  ',
-    Class = '  ',
-    Interface = '  ',
-    Module = '  ',
-    Property = '  ',
-    Unit = '  ',
-    Value = '  ',
-    Enum = '  ',
-    Keyword = '  ',
-    Snippet = '  ',
-    Color = '  ',
-    File = '  ',
-    Reference = '  ',
-    Folder = '  ',
-    EnumMember = '  ',
-    Constant = '  ',
-    Struct = '  ',
-    Event = '  ',
-    Operator = '  ',
-    TypeParameter = '  ',
-}
-
-cmp.setup({
-    snippet = {
-        expand = function(args)
-            luasnip.lsp_expand(args.body)
-        end,
-    },
-    window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
-    },
-    mapping = cmp.mapping.preset.insert({
-        ['<C-k>'] = cmp.mapping.select_prev_item(),
-        ['<C-j>'] = cmp.mapping.select_next_item(),
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = false }), --> Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        ['<Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
-            else
-                fallback()
-            end
-        end, { 'i', 's' }),
-        ['<S-Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-            else
-                fallback()
-            end
-        end, { 'i', 's' }),
-    }),
-    sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
-        { name = 'buffer' },
-        { name = 'path' },
-    }),
-    formatting = {
-        fields = { 'kind', 'abbr', 'menu' },
-        format = function(entry, vim_item)
-            vim_item.kind = cmp_kinds[vim_item.kind] or ''
-            vim_item.menu = ({ nvim_lsp = '[LSP]', luasnip = '[LuaSnip]', buffer = '[Buffer]', path = '[Path]' })
-            [entry.source.name]
-            return vim_item
-        end,
-    },
-    experimental = {
-        ghost_text = false,
-    },
-})
-
-cmp.event:on('confirm_done', require('nvim-autopairs.completion.cmp').on_confirm_done())
