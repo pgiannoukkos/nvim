@@ -13,7 +13,7 @@ return {
         local dapui = require('dapui')
 
         require('mason-nvim-dap').setup({
-            ensure_installed = { 'cppdbg' },
+            ensure_installed = { 'cppdbg', 'codelldb' },
             automatic_setup = true,
             handlers = {
                 function(config)
