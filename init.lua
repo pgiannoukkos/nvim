@@ -132,9 +132,9 @@ local servers = {
             },
         },
     },
-    rust_analyzer = {
-        cmd = { 'rustup', 'run', 'stable', 'rust-analyzer' },
-    },
+    -- rust_analyzer = {
+    --     cmd = { 'rustup', 'run', 'stable', 'rust-analyzer' },
+    -- },
     pylsp = {},
     bashls = {},
 }
