@@ -1,3 +1,5 @@
+vim.notify = require('notify')
+
 vim.o.hlsearch = false       --> set highlight on search
 vim.o.incsearch = true       --> use incremental search
 vim.o.ignorecase = true      --> case insensitive search...

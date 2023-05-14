@@ -27,6 +27,7 @@ require('lazy').setup({
     -- NOTE: First, some plugins that don't require any configuration
     { 'christoomey/vim-tmux-navigator' }, --> tmux & split window navigation
     { 'moll/vim-bbye' },
+    { 'rcarriga/nvim-notify' },
 
     {
         -- LSP Configuration & Plugins
