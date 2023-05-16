@@ -137,6 +137,7 @@ local servers = {
     -- },
     pylsp = {},
     bashls = {},
+    cssls = {},
 }
 
 -- Setup neovim lua configuration
