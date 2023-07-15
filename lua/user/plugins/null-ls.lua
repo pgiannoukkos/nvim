@@ -6,9 +6,10 @@ return {
         null_ls.setup({
             sources = {
                 -- Formatters
-                null_ls.builtins.formatting.stylua,  -- lua
-                null_ls.builtins.formatting.rustfmt, -- rust
-                null_ls.builtins.formatting.black,   -- python
+                null_ls.builtins.formatting.stylua,   -- lua
+                null_ls.builtins.formatting.rustfmt,  -- rust
+                null_ls.builtins.formatting.black,    -- python
+                null_ls.builtins.formatting.beautysh, -- bash
 
                 -- Linters
                 null_ls.builtins.diagnostics.flake8, -- python
