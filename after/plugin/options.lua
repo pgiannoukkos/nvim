@@ -48,8 +48,8 @@ vim.o.cursorline = true --> highlight current line
 vim.o.cursorcolumn = false
 vim.cmd('set colorcolumn=120')
 
-vim.o.scrolloff = 15
-vim.o.sidescrolloff = 15
+vim.o.scrolloff = 8
+vim.o.sidescrolloff = 8
 
 vim.o.laststatus = 3
 
